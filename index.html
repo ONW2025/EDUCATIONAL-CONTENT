@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ohio News and Weather Automated Graphics</title>
+  <style>
+    /* Body with a customizable background image */
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+    
+    /* Customizable Header Style */
+    h1 {
+      text-align: center;
+      background: var(--header-background, rgba(0, 0, 0, 0.5));
+      border: var(--header-border, 2px solid #fff);
+      font-family: var(--header-font-family, 'Arial', sans-serif);
+      font-size: var(--header-font-size, 36px);
+      color: var(--header-color, #fff);
+      text-shadow: var(--header-text-glow, 0 0 10px rgba(0, 0, 0, 0.8));
+      padding: 10px;
+      margin: 0 auto 20px auto;
+    }
+    
+    /* 4 columns grid (4x4 for 16 items) */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 20px;
+    }
+    
+    /* Base styles for each page box */
+    .page-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      transition: background 0.3s, box-shadow 0.3s;
+      background: var(--box-background, #fff);
+      border: var(--box-border, 1px solid #ddd);
+      border-radius: var(--box-border-radius, 5px);
+      font-family: var(--box-font-family, Arial, sans-serif);
+      font-size: var(--box-font-size, 16px);
+      color: var(--box-color, #333);
+      box-shadow: var(--box-glow, none);
+      /* Text glow for page boxes */
+      text-shadow: var(--box-text-glow, 0 0 5px rgba(255,255,255,0.8));
+    }
+    
+    /* Hover state for each page box */
+    .page-box:hover {
+      background: var(--box-hover-background, #eaeaea);
+      box-shadow: var(--box-hover-glow, 0 0 8px rgba(0, 0, 0, 0.2));
+    }
+    
+    /* Disabled boxes (when no link is provided) */
+    .disabled {
+      pointer-events: none;
+      opacity: 0.6;
+    }
+    
+    /* Daily Weather Joke Container with customizable top and left margins */
+    #jokeContainer {
+      text-align: center;
+      background: var(--header-background, rgba(0, 0, 0, 0.5));
+      border: var(--header-border, 2px solid #fff);
+      font-family: var(--header-font-family, 'Arial', sans-serif);
+      font-size: var(--header-font-size, 36px);
+      color: var(--header-color, #fff);
+      text-shadow: var(--header-text-glow, 0 0 10px rgba(255, 255, 255, 0.8));
+      padding: 10px;
+      margin-top: var(--joke-margin-top, 40px);
+      margin-left: var(--joke-margin-left, 40px);
+    }
+    
+    #jokeText {
+      margin: 0;
+      font-family: var(--joke-font-family, Arial, sans-serif);
+      font-size: var(--joke-font-size, 28px);
+      color: var(--joke-color, #ffffff);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>EDUCATIONAL CONTENT</h1>
+  
+  <div class="gallery">
+    <!-- Page Box 1 (Active) -->
+    <a href="https://onw2025.github.io/PRINCIPLES-OF-METEOROLOGY-QUIZ/" class="page-box"
+       style="--box-background: #FF007F; --box-border: 2px solid #000; --box-font-family: 'Overpass Black', sans-serif; --box-font-size: 16px; --box-color: #FFF; --box-glow: 0 0 5px rgba(0, 0, 0, 1); --box-text-glow: 0 0 10px rgba(0,0,0,1); --box-hover-background: #000; --box-hover-glow: 0 0 10px rgba(119,119,119,0.4);">
+      PRINCIPLES OF METEOROLOGY QUIZ
+    </a>
+
+    <!-- Page Box 2 (active) -->
+    <a href="" class="page-box disabled"
+       style="--box-background: #FFA500; --box-border: 2px solid #000; --box-font-family: 'Overpass Black', sans-serif; --box-font-size: 16px; --box-color: #FFF; --box-glow: 0 0 5px rgba(0,0,0,1); --box-text-glow: 0 0 10px rgba(0,0,0,1); --box-hover-background: #000; --box-hover-glow: 0 0 10px rgba(85,85,85,0.4);">
+      Page 2 (inactive)
+    </a>
+
+    <!-- Page Box 3 (Active) -->
+    <a href="" class="page-box disabled"
+       style="--box-background: #0000FF; --box-border: 2px solid #000; --box-font-family: 'Overpass Black', sans-serif; --box-font-size: 16px; --box-color: #FFF; --box-glow: 0 0 5px rgba(0,0,0,1); --box-text-glow: 0 0 10px rgba(0,0,0,1); --box-hover-background: #000; --box-hover-glow: 0 0 10px rgba(119,119,119,0.4);">
+      Page 3 (inactive)
+    </a>
+
+    <!-- Page Box 4 (Active) -->
+    <a href="https://onw2025.github.io/BUS-STOP-FORECAST/" class="page-box disabled"
+       style="--box-background: #800080; --box-border: 2px solid #000; --box-font-family: 'Overpass Black', sans-serif; --box-font-size: 16px; --box-color: #FFF; --box-glow: 0 0 5px rgba(0,0,0,1); --box-text-glow: 0 0 5px rgba(0,0,0,1); --box-hover-background: #000; --box-hover-glow: 0 0 10px rgba(119,119,119,0.4);">
+      page 4 (inactive)
+    </a>
+
+    <!-- Page Box 5 (Inactive) -->
+    <a href="" class="page-box disabled"
+       style="--box-background: #fff; --box-border: 2px dashed #999; --box-font-family: 'Courier New', monospace; --box-font-size: 16px; --box-color: #666; --box-glow: none; --box-text-glow: none;">
+      Page 5 (Inactive)
+    </a>
+
+    <!-- Page Box 6 (Inactive) -->
+    <a href="" class="page-box disabled"
+       style="--box-background: #fff; --box-border: 2px dashed #999; --box-font-family: 'Courier New', monospace; --box-font-size: 16px; --box-color: #666; --box-glow: none; --box-text-glow: none;">
+      Page 6 (Inactive)
+    </a>
+
+    <!-- Page Box 7 (Inactive) -->
+    <a href="" class="page-box disabled"
+       style="--box-background: #fff; --box-border: 2px dashed #999; --box-font-family: 'Courier New', monospace; --box-font-size: 16px; --box-color: #666; --box-glow: none; --box-text-glow: none;">
+      Page 7 (Inactive)
+    </a>
+
+    <!-- Page Box 8 (Inactive) -->
+    <a href="" class="page-box disabled"
+       style="--box-background: #fff; --box-border: 2px dashed #999; --box-font-family: 'Courier New', monospace; --box-font-size: 16px; --box-color: #666; --box-glow: none; --box-text-glow: none;">
+      Page 8 (Inactive)
+    </a>
+
+    <!-- Page Box 9 (Inactive) -->
+    <a href="" class="page-box disabled"
+       style="--box-background: #fff; --box-border: 2px dashed #999; --box-font-family: 'Courier New', monospace; --box-font-size: 16px; --box-color: #666; --box-glow: none; --box-text-glow: none;">
+      Page 9 (Inactive)
+    </a>
+
+    <!-- Page Box 10 (Inactive) -->
+    <a href="" class="page-box disabled"
+       style="--box-background: #fff; --box-border: 2px dashed #999; --box-font-family: 'Courier New', monospace; --box-font-size: 16px; --box-color: #666; --box-glow: none; --box-text-glow: none;">
+      Page 10 (Inactive)
+    </a>
+
+    <!-- Page Box 11 (Inactive) -->
+    <a href="" class="page-box disabled"
+       style="--box-background: #fff; --box-border: 2px dashed #999; --box-font-family: 'Courier New', monospace; --box-font-size: 16px; --box-color: #666; --box-glow: none; --box-text-glow: none;">
+      Page 11 (Inactive)
+    </a>
+
+    <!-- Page Box 12 (Inactive) -->
+    <a href="" class="page-box disabled"
+       style="--box-background: #fff; --box-border: 2px dashed #999; --box-font-family: 'Courier New', monospace; --box-font-size: 16px; --box-color: #666; --box-glow: none; --box-text-glow: none;">
+      Page 12 (Inactive)
+    </a>
+
+    <!-- Page Box 13 (Inactive) -->
+    <a href="" class="page-box disabled"
+       style="--box-background: #fff; --box-border: 2px dashed #999; --box-font-family: 'Courier New', monospace; --box-font-size: 16px; --box-color: #666; --box-glow: none; --box-text-glow: none;">
+      Page 13 (Inactive)
+    </a>
+
+    <!-- Page Box 14 (Inactive) -->
+    <a href="" class="page-box disabled"
+       style="--box-background: #fff; --box-border: 2px dashed #999; --box-font-family: 'Courier New', monospace; --box-font-size: 16px; --box-color: #666; --box-glow: none; --box-text-glow: none;">
+      Page 14 (Inactive)
+    </a>
+
+    <!-- Page Box 15 (Inactive) -->
+    <a href="" class="page-box disabled"
+       style="--box-background: #fff; --box-border: 2px dashed #999; --box-font-family: 'Courier New', monospace; --box-font-size: 16px; --box-color: #666; --box-glow: none; --box-text-glow: none;">
+      Page 15 (Inactive)
+    </a>
+
+    <!-- Page Box 16 (Inactive) -->
+    <a href="" class="page-box disabled"
+       style="--box-background: #fff; --box-border: 2px dashed #999; --box-font-family: 'Courier New', monospace; --box-font-size: 16px; --box-color: #666; --box-glow: none; --box-text-glow: none;">
+      Page 16 (Inactive)
+    </a>
+  </div>
+</body>
+</html>
